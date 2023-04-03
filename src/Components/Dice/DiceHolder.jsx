@@ -28,6 +28,8 @@ const DiceHolder = () => {
         ListHeaderComponent={
           <ResultDisplayer valueToDisplay={`Total: ${valueToDisplayNow}`} />
         }
+        ListFooterComponent={<DiceElement numberOnDiceSide={0} />}
+        ListFooterComponentStyle={styles.footer}
         contentContainerStyle={styles.content}
       />
       {/* </View> */}
@@ -53,6 +55,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     padding: 10,
   },
-  marker: {},
+  footer: {
+    marginVertical: 10,
+  },
 });
 export default DiceHolder;
