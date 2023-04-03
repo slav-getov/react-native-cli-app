@@ -13,6 +13,7 @@ export default function App() {
     {value: 0, id: 'first'},
     {value: 0, id: 'second'},
     {value: 0, id: 'third'},
+    {value: 0, id: 'fourth'},
   ];
   const [stateExperimental, dispatchExperimental] = useReducer(
     experimentalReducer,

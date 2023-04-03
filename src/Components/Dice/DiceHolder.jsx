@@ -15,7 +15,6 @@ const DiceHolder = () => {
     //here we will attempt to remove the view style and style the whole uppercontainer with flatlist styles
     <View style={styles.container}>
       <FlatList
-        style={styles.marker}
         data={stateExperimental}
         renderItem={({item}) => <DiceElement numberOnDiceSide={item.value} />}
         keyExtractor={item => item.id}
@@ -23,8 +22,6 @@ const DiceHolder = () => {
         ListHeaderComponent={
           <ResultDisplayer valueToDisplay={`Total: ${valueToDisplayNow}`} />
         }
-        ListFooterComponent={<DiceElement numberOnDiceSide={0} />}
-        ListFooterComponentStyle={styles.footer}
         contentContainerStyle={styles.content}
       />
       {/* </View> */}
