@@ -19,7 +19,6 @@ const ButtonArea = () => {
           //so far click worked here. Trying context
           dispatchExperimental({
             type: 'fill_die',
-            values: [returnRandomNum(), returnRandomNum(), returnRandomNum()],
           });
         }}
       />
