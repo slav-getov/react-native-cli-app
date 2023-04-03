@@ -1,16 +1,19 @@
-import React, {useContext} from 'react';
+import React, {useContext, useMemo} from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
 import DiceElement from './DiceElement';
 import ResultDisplayer from '../Informational/ResultDisplayer';
 import {DiceContext} from '../../Context/DiceContext';
+import {calculateValueToDisplay} from '../../Helpers/calculateValueToDisplay';
 
 const DiceHolder = () => {
   const {stateExperimental} = useContext(DiceContext);
-  //
-  const valueToDisplayNow = stateExperimental
-    .map(singleItem => singleItem.value)
-    .reduce((acc, currentValue) => acc + currentValue, 0);
-  console.log(valueToDisplayNow);
+
+  const calculation = useMemo(
+    () => calculateValueToDisplay(stateExperimental),
+    [stateExperimental],
+  );
+
+  console.log(calculation);
   return (
     //here we will attempt to remove the view style and style the whole uppercontainer with flatlist styles
     <View style={styles.container}>
@@ -20,7 +23,7 @@ const DiceHolder = () => {
         keyExtractor={item => item.id}
         numColumns={3}
         ListHeaderComponent={
-          <ResultDisplayer valueToDisplay={`Total: ${valueToDisplayNow}`} />
+          <ResultDisplayer valueToDisplay={`Total: ${calculation}`} />
         }
         contentContainerStyle={styles.content}
       />
