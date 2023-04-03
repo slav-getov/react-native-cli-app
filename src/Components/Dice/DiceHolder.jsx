@@ -4,9 +4,6 @@ import DiceElement from './DiceElement';
 import ResultDisplayer from '../Informational/ResultDisplayer';
 import {DiceContext} from '../../Context/DiceContext';
 
-//import {DiceContext} from '../../Context/DiceContext';
-//const {stateExperimental} = useContext(DiceContext);
-
 const DiceHolder = () => {
   const {stateExperimental} = useContext(DiceContext);
   //
@@ -17,8 +14,6 @@ const DiceHolder = () => {
   return (
     //here we will attempt to remove the view style and style the whole uppercontainer with flatlist styles
     <View style={styles.container}>
-      {/* <ResultDisplayer valueToDisplay="Total: 9" /> */}
-      {/* <View style={styles.diceContainer}> */}
       <FlatList
         style={styles.marker}
         data={stateExperimental}
