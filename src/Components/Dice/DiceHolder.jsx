@@ -10,7 +10,10 @@ import {DiceContext} from '../../Context/DiceContext';
 const DiceHolder = () => {
   const {stateExperimental} = useContext(DiceContext);
   //
-  console.log(stateExperimental);
+  const valueToDisplayNow = stateExperimental
+    .map(singleItem => singleItem.value)
+    .reduce((acc, currentValue) => acc + currentValue, 0);
+  console.log(valueToDisplayNow);
   return (
     //here we will attempt to remove the view style and style the whole uppercontainer with flatlist styles
     <View style={styles.container}>
@@ -22,7 +25,9 @@ const DiceHolder = () => {
         renderItem={({item}) => <DiceElement numberOnDiceSide={item.value} />}
         keyExtractor={item => item.id}
         numColumns={3}
-        ListHeaderComponent={<ResultDisplayer valueToDisplay="Total: 9" />}
+        ListHeaderComponent={
+          <ResultDisplayer valueToDisplay={`Total: ${valueToDisplayNow}`} />
+        }
         contentContainerStyle={styles.content}
       />
       {/* </View> */}

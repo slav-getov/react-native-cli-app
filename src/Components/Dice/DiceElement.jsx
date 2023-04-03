@@ -1,9 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-type DiceElementProps = {
-  numberOnDiceSide: number;
-};
-const DiceElement = ({numberOnDiceSide}: DiceElementProps) => {
+
+const DiceElement = ({numberOnDiceSide}) => {
   return (
     <View>
       <Text style={styles.dice}>{numberOnDiceSide}</Text>
@@ -12,10 +10,9 @@ const DiceElement = ({numberOnDiceSide}: DiceElementProps) => {
 };
 const styles = StyleSheet.create({
   dice: {
-    paddingHorizontal: 20,
-    paddingVertical: 10,
+    paddingHorizontal: 30,
+    paddingVertical: 20,
     fontSize: 20,
-
     color: 'white',
     marginHorizontal: 10,
     borderRadius: 15,
